@@ -53,5 +53,18 @@ public class Conexion {
 
         return bandera;
     }
+    
+     public ResultSet consultarTodo(){
+        
+        try {
+            String queryConsulta = "select* from persona";
+            state = cnn.createStatement();
+            res = state.executeQuery(queryConsulta); //resultset, retorna filas y columnas
+        } catch (SQLException ex) {
+            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return res; 
+    }
 
 }
